@@ -16,7 +16,9 @@ import java.util.stream.Collectors;
  * Demo class
  */
 public class Demo {
-    /** example of all assignments */
+    /**
+     * example of all assignments
+     */
     public static void main(String[] args) {
         System.out.println("-----------only positive numbers with reverse sorting----------------");
         int[] values = new int[]{1, 2, -3, 4, -142, 13, 1, 234, -123};
@@ -24,8 +26,12 @@ public class Demo {
         System.out.println(result);
 
         System.out.println("----------tag counting ----------------------------------------------");
-        String text = "#hashtag1 #hashtag2 #hashtag1 #hashtag1 #hashtag2 #hashtag1 text without any tags will be skipped #hashtag1 #hashtag2 #hashtag3 #hashtag5#hashtag5#hashtag5 #hashtag5#hashtag5 #hashtag1 #hashtag1 #hashtag21 #hashtag123 #hashtag21";
-        System.out.println(TagCounter.topFiveTags(text));
+        System.out.println(TagCounter.topFiveTags(
+                List.of(
+                        "#hashtag1 #hashtag2 #hashtag1 #hashtag1 #hashtag2",
+                        "#hashtag1 text without any tags will be ",
+                        "skipped #hashtag1 #hashtag2 #hashtag3 #hashtag5#hashtag5#hashtag5",
+                        "#hashtag5#hashtag5 #hashtag1 #hashtag1 #hashtag21 #hashtag123 #hashtag21")));
 
         List<Shape> shapes = new ArrayList<>();
         shapes.add(new Cube(3));

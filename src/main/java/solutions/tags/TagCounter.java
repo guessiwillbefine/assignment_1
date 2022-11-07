@@ -3,6 +3,7 @@ package solutions.tags;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Solution for 2nd assignment
@@ -17,13 +18,13 @@ public class TagCounter {
     of current class - we have only static methods */
     private TagCounter() {}
     /**
-     * @param text string contain tags to count
+     * @param texts - List of texts string contain tags to count
      * @return Map sorted by amount of tag repetitions, if equals sort by natural order. if there will be no tags in text will return an empty Map.
      * duplicate tags are counting as one.
      */
-    public static Map<String, Long> topFiveTags(String text) {
-        if (text.isBlank()) return Collections.emptyMap();
-
+    public static Map<String, Long> topFiveTags(List<String> texts) {
+        if (texts.isEmpty()) return Collections.emptyMap();
+        String text = String.join(" ", texts);
         Matcher matcher = Pattern.compile("#\\w+").matcher(text);
         Map<String, Long> temporalMap = new LinkedHashMap<>();
         String previous = "";
