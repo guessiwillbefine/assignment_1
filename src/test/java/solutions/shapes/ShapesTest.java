@@ -23,8 +23,6 @@ class ShapesTest {
                    double expectedVolume, double expectedArea) {
 
         Cube testCube = new Cube(side);
-        System.out.println(testCube.getVolume() + "-" + expectedVolume);
-        System.out.println(testCube.getArea() + "-" + expectedArea);
         assertTrue(testCube.getVolume() - expectedVolume < DELTA);
         assertTrue(testCube.getArea() - expectedArea < DELTA);
     }
