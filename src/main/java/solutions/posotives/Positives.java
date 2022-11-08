@@ -10,7 +10,7 @@ import java.util.Comparator;
  */
 public class Positives {
 
-    /*private constructor because it's no use to create instances
+    /**private constructor because it's no use to create instances
        of current class - we have only static methods */
     private Positives(){}
 
@@ -20,7 +20,8 @@ public class Positives {
      * if all values of given array are less than 0, it will also return an empty array
      */
     public static int[] findElements(int[] arr) {
-        if (arr.length == 0) return arr;
+        if (arr == null) throw new NullPointerException();
+        else if (arr.length == 0) return arr;
         return Arrays.stream(arr)
                 .boxed()
                 .filter(Positives::isPositive)

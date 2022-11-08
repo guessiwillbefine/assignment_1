@@ -9,11 +9,18 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import solutions.posotives.Positives;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ShapesSorterTest {
 
+    @Test
+    void testNullArgs(){
+        assertThrows(NullPointerException.class, () -> Shape.sort(null));
+        assertThrows(NullPointerException.class, () -> Shape.sortReversed(null));
+    }
     @Test
     void testEmptyList() {
         List<Shape> shapes = new ArrayList<>();

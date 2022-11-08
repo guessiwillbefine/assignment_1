@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import solutions.posotives.Positives;
 import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PositiveValuesTest {
 
@@ -16,7 +17,10 @@ public class PositiveValuesTest {
     void testValidData(int[] input, int[] output) {
         Assertions.assertArrayEquals(output, Positives.findElements(input));
     }
-
+    @Test
+    void testNullArgs(){
+        assertThrows(NullPointerException.class, () -> Positives.findElements(null));
+    }
     @Test
     void invalidInput(){
         int[] arr = new int[0];

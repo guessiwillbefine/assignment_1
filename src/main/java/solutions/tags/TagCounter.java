@@ -25,7 +25,8 @@ public class TagCounter {
      * duplicate tags are counting as one.
      */
     public static Map<String, Long> topFiveTags(List<String> texts) {
-        if (texts.isEmpty()) return Collections.emptyMap();
+        if (texts == null) throw new NullPointerException();
+        else if (texts.isEmpty()) return Collections.emptyMap();
         String text = String.join(" ", texts);
         Matcher matcher = Pattern.compile("#\\w+").matcher(text);
         Map<String, Long> temporalMap = new LinkedHashMap<>();

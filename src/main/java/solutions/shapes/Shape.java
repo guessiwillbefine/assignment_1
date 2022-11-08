@@ -31,12 +31,14 @@ public abstract class Shape implements Comparable<Shape> {
      */
     public static void sort(List<Shape> shapes) {
 //      shapes.sort(Comparator.comparing(Shape::getVolume)); <--- or like this
+        if (shapes == null) throw new NullPointerException();
         Collections.sort(shapes);
     }
 
     /***same as Shape#sort, but makes sort in reversed order
      * @param shapes - List of Shape inheritors*/
     public static void sortReversed(List<Shape> shapes) {
+        if (shapes == null) throw new NullPointerException();
 //      shapes.sort(Comparator.comparing(Shape::getVolume)); <--- or like this
         Collections.sort(shapes);
         Collections.reverse(shapes);

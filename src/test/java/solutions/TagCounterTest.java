@@ -1,5 +1,6 @@
 package solutions;
 
+import solutions.posotives.Positives;
 import solutions.tags.TagCounter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class TagCounterTest {
@@ -33,6 +35,11 @@ class TagCounterTest {
         expected.put("#tag2", 2L);
         expected.put("#tag3", 1L);
         assertEquals(expected, TagCounter.topFiveTags(text));
+    }
+
+    @Test
+    void testNullArgs(){
+        assertThrows(NullPointerException.class, () -> TagCounter.topFiveTags(null));
     }
 
     @Test
